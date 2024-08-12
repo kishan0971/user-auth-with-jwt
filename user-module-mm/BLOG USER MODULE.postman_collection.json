@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "47ec80e4-9641-42de-a60e-cf4e8ab9d577",
+		"name": "BLOG USER MODULE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34621469"
+	},
+	"item": [
+		{
+			"name": "login/logout",
+			"item": [
+				{
+					"name": "LOGIN",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Super Admin\",\r\n    \"password\":\"h3G8kL2nW9pQ\"\r\n}\r\n// {\r\n//     \"username\":\"\",\r\n//     \"password\":\"\"\r\n// }\r\n// {\r\n//     \"username\":\"\",\r\n//     \"password\":\"\"\r\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}in2it/blog/public/login",
+							"host": [
+								"{{base_url}}in2it"
+							],
+							"path": [
+								"blog",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Super Admin",
+			"item": [
+				{
+					"name": "CREATE ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMDAwMDAwMSIsImlhdCI6MTcyMjk0MTUwOCwiZXhwIjoxNzIyOTQ0NTA4fQ.KjVpKJlL-KnSLE72TIN5Eg68idclE-oRGZUiGzyGBOk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin1@example.com\",\r\n    \"empCode\":\"00000001\",\r\n    \"name\": \"Admin 1\",\r\n\t\"address\":\"DELHI\",\r\n\t\"mobile\":\"7854123698\",\r\n\t\"backupEmail\":\"1admin1@example.com\",\r\n\t\"joinDate\":\"2024-05-05\",\r\n    \"department\": [\"JAVA\",\"PYTHON\"],\r\n    \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}user/create-author",
+							"host": [
+								"{{base_url}}user"
+							],
+							"path": [
+								"create-author"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create Author (M , E , T)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTdXBlciBBZG1pbiIsImlhdCI6MTcyMjkzOTc1NSwiZXhwIjoxNzIyOTQyNzU1fQ.GOvakHxS3BUNBuzBPIWHS6XzTOwORSMPMBfusG4pp_4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"john14111@example.com\",\r\n    \"name\": \"john_doe\",\r\n    \"department\": [\"JAVA\"],\r\n    \"managerId\" : 1,\r\n    \"team\": [\"T1\"],\r\n    \"role\": \"EMPLOYEE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}in2it/blog/user/create-author/aniket@example.com",
+							"host": [
+								"{{base_url}}in2it"
+							],
+							"path": [
+								"blog",
+								"user",
+								"create-author",
+								"aniket@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTdXBlciBBZG1pbiIsImlhdCI6MTcyMjU5NzIxMywiZXhwIjoxNzIyNjAwMjEzfQ.btgP-AtMQeGpbMrJZlaa85gGvt593HqKdbvKg3-ltw4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}in2it/blog/user/soft-delete/2",
+							"host": [
+								"{{base_url}}in2it"
+							],
+							"path": [
+								"blog",
+								"user",
+								"soft-delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": []
+		},
+		{
+			"name": "TEAMS",
+			"item": [
+				{
+					"name": "GET ALL TEAMS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}in2it/blog/team",
+							"host": [
+								"{{base_url}}in2it"
+							],
+							"path": [
+								"blog",
+								"team"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "General for all",
+			"item": [
+				{
+					"name": "edit self details",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "VALIDATE JWT TOKEN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTdXBlciBBZG1pbiIsImlhdCI6MTcyMjkzMzg4NiwiZXhwIjoxNzIyOTM2ODg2fQ.lJCmDzr7ZgYzKH1QVNke5NivyudEZDUz5u8pyVjuC2o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/in2it/internal/controller/validate-jwt-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"in2it",
+								"internal",
+								"controller",
+								"validate-jwt-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/in2it/blog/",
+			"type": "string"
+		},
+		{
+			"key": "jwt_token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTdXBlciBBZG1pbiIsImlhdCI6MTcyMjg0MjgyNywiZXhwIjoxNzIyODQ1ODI3fQ.oIO-Z-PxFmwd_GsNgfk1OSzfmPrrntkOER6S6EMKo5E",
+			"type": "string"
+		}
+	]
+}
